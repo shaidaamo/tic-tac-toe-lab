@@ -42,6 +42,7 @@ function updateBoard(){
     }
 }
 function updateMessage(){
+    
     if(winner === false && tie === false){
         messageEl.textContent = turn
     }
@@ -49,7 +50,7 @@ function updateMessage(){
         messageEl.textContent = 'tie'
     }
     else{
-        messageEl.textContent = 'congrats!, you win'
+        messageEl.textContent = 'congrats!, you win ' + winplayer
     }
 }
 function handleClick(event){
@@ -71,11 +72,12 @@ function placePiece(index){
         console.log(board)
     }
 
-
+let winplayer = '';
 function checkForWinner(){
   for(let i=0;i< winningCombos.length;i++){
     if(board[winningCombos[i][0]]!= '' && board[winningCombos[i][0]] === board[winningCombos[i][1]] &&board[winningCombos[i][0]] === board[winningCombos[i][2]]){
         winner = true
+        winplayer = board[winningCombos[i][0]]
 }}}
 
 
